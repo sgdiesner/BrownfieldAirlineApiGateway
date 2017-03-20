@@ -1,0 +1,65 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.brownfield.pss'
+version = '1.0'
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+
+repositories {
+	mavenCentral()
+}
+dependencies {
+    compile group: 'io.springfox', name: 'springfox-swagger2', version:'2.3.1'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version:'2.3.1'
+    compile ('org.springframework.boot:spring-boot-starter-actuator')
+    compile(group: 'org.springframework.cloud', name: 'spring-cloud-starter-eureka',version:'1.1.0.RELEASE') {
+exclude(module: 'guice-grapher')
+exclude(module: 'guice-assistedinject')
+exclude(module: 'jsr166y')
+exclude(module: 'xbean-finder')
+exclude(module: 'asm-all')
+exclude(module: 'guice-multibindings')
+exclude(module: 'xbean-bundleutils')
+exclude(module: 'commons-math')
+exclude(module: 'netflix-infix')
+exclude(module: 'joda-time')
+exclude(module: 'commons-jxpath')
+exclude(module: 'antlr-runtime')
+exclude(module: 'stringtemplate')
+exclude(module: 'antlr')
+exclude(module: 'gson')
+exclude(module: 'annotations')
+exclude(module: 'dagger')
+exclude(module: 'blitz4j')
+exclude(module: 'hibernate-validator')
+    }
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-config', version:'1.1.0.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
+    compile group: 'org.springframework.data', name: 'spring-data-rest-hal-browser', version:'2.4.4.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-hateoas'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-amqp'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-stream-rabbit', version:'1.0.0.RELEASE'
+    runtime group: 'com.h2database', name: 'h2', version:'1.4.191'
+    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test') {
+exclude(module: 'commons-logging')
+    }
+}
