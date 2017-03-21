@@ -1,6 +1,7 @@
 buildscript {
 	ext {
 		springBootVersion = '1.5.2.RELEASE'
+//		springBootVersion = '1.4.5.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -63,4 +64,9 @@ exclude(module: 'hibernate-validator')
     testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test') {
 exclude(module: 'commons-logging')
     }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Brixton.SR7"}
 }
