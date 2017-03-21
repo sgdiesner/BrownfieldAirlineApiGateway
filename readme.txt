@@ -20,7 +20,7 @@ java -jar Fares/build/libs/fares-1.0.jar
 java -jar Search/build/libs/search-1.0.jar
 java -jar Checkin/build/libs/checkin-1.0.jar
 java -jar Book/build/libs/book-1.0.jar
-java –jar Fares-apigateway/build/libs/fares-apigateway-1.0.jar
+java -jar Fares-apigateway/build/libs/fares-apigateway-1.0.jar
 java –jar Search-apigateway/build/libs/search-apigateway-1.0.jar
 java –jar Checkin-apigateway/build/libs/checkin-apigateway-1.0.jar
 java –jar Book-apigateway/build/libs/book-apigateway-1.0.jar
@@ -37,33 +37,39 @@ https://github.com/spring-cloud/spring-cloud-netflix/issues/1025
 RabbitMQ Issues
 ===============
 
-CMD @ C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.8\sbin
-> rabbitmqctl status
-Status of node rabbit@Haverford ...
-Error: unable to connect to node rabbit@Haverford: nodedown
+    CMD @ C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.8\sbin
+    > rabbitmqctl status
+    Status of node rabbit@Haverford ...
+    Error: unable to connect to node rabbit@Haverford: nodedown
 
-DIAGNOSTICS
-===========
+    DIAGNOSTICS
+    ===========
 
-attempted to contact: [rabbit@Haverford]
+    attempted to contact: [rabbit@Haverford]
 
-rabbit@Haverford:
-  * connected to epmd (port 4369) on Haverford
-  * epmd reports node 'rabbit' running on port 25672
-  * TCP connection succeeded but Erlang distribution failed
+    rabbit@Haverford:
+      * connected to epmd (port 4369) on Haverford
+      * epmd reports node 'rabbit' running on port 25672
+      * TCP connection succeeded but Erlang distribution failed
 
-  * Authentication failed (rejected by the remote node), please check the Erlang cookie
-
-
-current node details:
-- node name: 'rabbitmq-cli-22@Haverford'
-- home dir: C:\Users\Steve
-- cookie hash: 6xTyEQhV3OT1OLR5pLWeNA==
+      * Authentication failed (rejected by the remote node), please check the Erlang cookie
 
 
-copy c:\windows\.erlang.cookie to c:\users\steve (they have got out of sync)
+    current node details:
+    - node name: 'rabbitmq-cli-22@Haverford'
+    - home dir: C:\Users\Steve
+    - cookie hash: 6xTyEQhV3OT1OLR5pLWeNA==
 
-CMD @ C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.8\sbin
-> rabbitmqctl start_app
-Starting node rabbit@Haverford ...
 
+    copy c:\windows\.erlang.cookie to c:\users\steve (they have got out of sync)
+
+    CMD @ C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.8\sbin
+    > rabbitmqctl start_app
+    Starting node rabbit@Haverford ...
+
+Zuul Issue
+==========
+
+java.lang.ClassNotFoundException: org.springframework.boot.context.embedded.ServletRegistrationBean
+
+https://github.com/spring-projects/spring-boot/issues/8186
